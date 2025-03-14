@@ -8,11 +8,19 @@ from sqlalchemy.ext.asyncio import create_async_engine
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
 
-# Database configuration
-DATABASE_URL = os.getenv("DATABASE_URL")
-engine = create_async_engine(DATABASE_URL, connect_args={"ssl": True})
+# for local development
+# load_dotenv()
+
+# # Database configuration
+# DATABASE_URL = os.getenv("DATABASE_URL")
+# engine = create_async_engine(DATABASE_URL, connect_args={"ssl": True})
+
+# for streamlit
+header = {
+    "authorizations": st.secrets["DATABASE_URL"],
+    "content-type": "application/json"
+}
 
 # Book model
 class Book(SQLModel, table=True):
