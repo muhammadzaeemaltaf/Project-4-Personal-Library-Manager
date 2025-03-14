@@ -1,6 +1,7 @@
 streamlit
 asyncio  
 nest_asyncio
+asyncpg
 pandas
 sqlmodel
 sqlalchemy
