@@ -1,0 +1,7 @@
+streamlit
+asyncio  
+nest_asyncio
+pandas
+sqlmodel
+sqlalchemy
+python-dotenv
