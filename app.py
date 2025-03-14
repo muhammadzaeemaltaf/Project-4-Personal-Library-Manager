@@ -10,17 +10,15 @@ import os
 
 
 # for local development
-# load_dotenv()
+load_dotenv()
 
-# # Database configuration
+# Database configuration for local
 # DATABASE_URL = os.getenv("DATABASE_URL")
-# engine = create_async_engine(DATABASE_URL, connect_args={"ssl": True})
+# Database configuration for streamlit 
+DATABASE_URL = st.secrets["DATABASE_URL"]
+engine = create_async_engine(DATABASE_URL, connect_args={"ssl": True})
 
-# for streamlit
-header = {
-    "authorizations": st.secrets["DATABASE_URL"],
-    "content-type": "application/json"
-}
+
 
 # Book model
 class Book(SQLModel, table=True):
@@ -185,4 +183,5 @@ def main():
         col1.metric("Total Books", total)
         col2.metric("Read Percentage", f"{percentage:.1f}%")
 
-main()
+if __name__ == "__main__":
+    main()
