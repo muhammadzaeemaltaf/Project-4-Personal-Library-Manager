@@ -185,5 +185,4 @@ def main():
         col1.metric("Total Books", total)
         col2.metric("Read Percentage", f"{percentage:.1f}%")
 
-if __name__ == "__main__":
-    main()
+main()
